@@ -1,6 +1,6 @@
 # Flyte IDL
 
-This is one of the core repositories of Flyte and contains the Specification of the Flyte Lanugage using protobuf messages, the Backend API specification in gRPC and Swagger REST. The repo contains generated clients and protocol message structures in multiple languages. Along-with the generated code, the repository also contains the Golang clients for Flyte's backend API's (the services grouped under Flyteadmin).
+This is one of the core repositories of Flyte that contains specification of the Flyte Lanugage using protobuf messages, the Backend API specification in gRPC and Swagger REST. The repo contains generated clients and protocol message structures in multiple languages. In addition to the generated code, the repository also contains the Golang clients for Flyte's backend APIs (the services grouped under FlyteAdmin).
 
 [![Slack](https://img.shields.io/badge/slack-join_chat-white.svg?logo=slack&style=social)](https://slack.flyte.org)
 
@@ -18,14 +18,14 @@ This is one of the core repositories of Flyte and contains the Specification of 
    make download_tooling
 ```
 
-2. Make sure docker is installed locally.
-3. Once installed, run ``make generate`` to generate all the code and mock client for FlyteAdmin Service aswell as the docs for it.
+2. Make sure Docker is installed locally.
+3. Once installed, run ``make generate`` to generate all the code and mock client for FlyteAdmin Service and the docs for it.
 
 ```bash
     make generate
 ```
 
-4. To add new dependencies for documentation generation, modify ``doc-requirements.in`` and then
+4. To add new dependencies for documentation generation, modify ``doc-requirements.in`` and run
 
 ```bash
    make doc-requirements.txt
@@ -33,8 +33,8 @@ This is one of the core repositories of Flyte and contains the Specification of 
 
 ## Docs structure
 
-The index.rst files for protos are kept in parallel folder structure under the docs folder.
-All the proto definitions are within protos/flyteidl and there corresponding docs are kept in protos/docs
+The index.rst files for protos are kept in a parallel folder structure under the docs folder.
+All the proto definitions are within protos/flyteidl and there corresponding docs are kept in protos/docs.
 
 ```
 docs
@@ -58,13 +58,13 @@ docs
 │   └── service.rst
 ```
 
-Each module in protos has same named module under the docs also.
-eg : protos/flyteidl/core has same named doc structure placing it index and other documentation files in protos/docs/core
+Each module in protos has a module in docs with the same name.
+E.g., protos/flyteidl/core has its corresponding docs in protos/docs/core.
 
 
 ## Docs Generation
 
-* If introducing a new module then follow the structure for core files in `generate_protos.sh` file which helps in generating the core documentation from its proto files.
+* If a new module is added, follow the structure for core files in `generate_protos.sh` file which helps generate the core documentation from its proto files.
 ```
      core_proto_files=`ls protos/flyteidl/core/*.proto |xargs`
      # Remove any currently generated file
@@ -74,5 +74,5 @@ eg : protos/flyteidl/core has same named doc structure placing it index and othe
 
 * ``make generate`` would have already generated the modified rst files.
 
-* ``make html`` Generate the sphinx documentation from the docs folder to use the modified rst for docs.
+* ``make html`` Generates the Sphinx documentation from the docs folder.
 
